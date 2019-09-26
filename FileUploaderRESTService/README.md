@@ -100,3 +100,16 @@ fallocate -l 6G gentoo_6.img
 1. target-dir> md5sum gentoo_6.img
 2. 58cf638a733f919007b4287cf5396d0c  gentoo_6.img
 
+# Fetching information from files.
+
+1. Using the Apache Tika project -> https://tika.apache.org/ 
+2. maven artifacts here -> https://mvnrepository.com/artifact/org.apache.tika/tika-parsers
+
+## Image (png, jpeg, jpg)
+
+## PDF
+
+
+## ZIP
+
+
