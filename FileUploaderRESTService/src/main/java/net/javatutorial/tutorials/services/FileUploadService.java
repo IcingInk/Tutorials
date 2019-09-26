@@ -28,7 +28,7 @@ import com.sun.jersey.multipart.FormDataParam;
 public class FileUploadService {
 	
 	/** The path to the folder where we want to store the uploaded files */
-	private static final String UPLOAD_FOLDER = "c:/uploadedFiles/";
+	private static final String UPLOAD_FOLDER = "/home/ingimar/repos/icingink-github/Tutorials/fileupload-folder/";
 	
 	public FileUploadService() {}
 	
