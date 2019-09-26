@@ -102,6 +102,10 @@ fallocate -l 6G gentoo_6.img
 
 # Fetching information from files.
 
+- testing to save the information(tags) down to a file 
+
+**Not Using the TIKA-style, too much footprint - test 'drewnoakes' **
+
 1. Using the Apache Tika project -> https://tika.apache.org/ 
 2. maven artifacts here -> https://mvnrepository.com/artifact/org.apache.tika/tika-parsers
 
@@ -109,7 +113,30 @@ fallocate -l 6G gentoo_6.img
 
 ## PDF
 
+## ZIP
+
+**Using drewnoakes**
+
+1. https://github.com/drewnoakes/metadata-extractor/blob/master/Samples/com/drew/metadata/SampleUsage.java
+
+
+## Image (png,jpeg)
+
+test jpeg
+
+``` 
+[JPEG] Compression Type - Progressive, Huffman[JPEG] Data Precision - 8 bits[JPEG] Image Height - 633 pixels[JPEG] Image Width - 511 pixels[JPEG] Number of Components - 3[JPEG] Component 1 - Y component: Quantization table 0, Sampling factors 2 horiz/2 vert[JPEG] Component 2 - Cb component: Quantization table 1, Sampling factors 1 horiz/1 vert[JPEG] Component 3 - Cr component: Quantization table 1, Sampling factors 1 horiz/1 vert[JFIF] Version - 1.1[JFIF] Resolution Units - none[JFIF] X Resolution - 1 dot[JFIF] Y Resolution - 1 dot[JFIF] Thumbnail Width Pixels - 0[JFIF] Thumbnail Height Pixels - 0[IPTC] Special Instructions - FBMD0f000758010000aa1500008d31000057370000e83c0000ea410000f28f000093920000[Huffman] Number of Tables - 2 Huffman tables[File Type] Detected File Type Name - JPEG[File Type] Detected File Type Long Name - Joint Photographic Experts Group[File Type] Detected MIME Type - image/jpeg[File Type] Expected File Name Extension - jpg
+ ```
+
+**Q:**
+
+1. kan jag spara denna data annorlunda ? 
+2. kan jag hämta ut 'MIME Type'
+
+## PDF
 
 ## ZIP
+
+
 
 
