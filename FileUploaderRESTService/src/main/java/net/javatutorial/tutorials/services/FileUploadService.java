@@ -14,8 +14,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.drew.metadata.Metadata;
 import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataParam;
+
+import se.nrm.bio.ingimar.Analysis;
+import se.nrm.bio.ingimar.SimpleFileWriter;
 
 /**
  * This example shows how to build Java REST web-service to upload files 
@@ -45,6 +49,39 @@ public class FileUploadService {
     public Response uploadFile(
         @FormDataParam("file") InputStream uploadedInputStream,
         @FormDataParam("file") FormDataContentDisposition fileDetail) {
+		
+		// check if all form parameters are provided
+		if (uploadedInputStream == null || fileDetail == null)
+			return Response.status(400).entity("Invalid form data").build();
+		
+		// create our destination folder, if it not exists
+		try {
+			createFolderIfNotExists(UPLOAD_FOLDER);
+		} catch (SecurityException se) {
+			return Response.status(500).entity("Can not create destination folder on server").build();
+		}
+
+        String uploadedFileLocation = UPLOAD_FOLDER + fileDetail.getFileName();
+        try {
+			saveToFile(uploadedInputStream, uploadedFileLocation);
+		} catch (IOException e) {
+			return Response.status(500).entity("Can not save file").build();
+		}
+
+        return Response.status(200).entity("File saved to " + uploadedFileLocation).build();
+    }
+	
+	@POST
+    @Path("/extra")
+	@Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Response uploadFileextra(
+        @FormDataParam("file") InputStream uploadedInputStream,
+        @FormDataParam("file") FormDataContentDisposition fileDetail) {
+		
+		// tested for image; MIME Type = image/jpeg
+		Metadata metadata = Analysis.fetchMetadata(uploadedInputStream); 
+		SimpleFileWriter write = new SimpleFileWriter();
+		write.write(metadata);
 		
 		// check if all form parameters are provided
 		if (uploadedInputStream == null || fileDetail == null)
