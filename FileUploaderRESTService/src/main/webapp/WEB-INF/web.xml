@@ -5,6 +5,11 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<display-name>net.javatutorial.tutorials.services</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>fileuploader.html</welcome-file>
+	</welcome-file-list>
 	<servlet>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -13,7 +18,7 @@
 			<param-value>net.javatutorial.tutorials.services</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-	</servlet> 
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
