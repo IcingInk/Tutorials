@@ -118,6 +118,8 @@ fallocate -l 6G gentoo_6.img
 **Using drewnoakes**
 
 1. https://github.com/drewnoakes/metadata-extractor/blob/master/Samples/com/drew/metadata/SampleUsage.java
+2. Metadata metadata = ImageMetadataReader.readMetadata(inputStream);
+
 
 
 ## Image (png,jpeg)
@@ -136,6 +138,11 @@ test jpeg
 ## PDF
 
 ## ZIP
+
+test zip
+
+```[File Type] Detected File Type Name - ZIP[File Type] Detected File Type Long Name - ZIP Archive[File Type] Detected MIME Type - application/zip[File Type] Expected File Name Extension - .zip ```
+
 
 
 
